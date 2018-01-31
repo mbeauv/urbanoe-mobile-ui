@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [ "jest" ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-underscore-dangle": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
+    "import/prefer-default-export": "off",
+    "object-curly-newline": "off",
+    "global-require": "off"
+  },
+  "env": {
+    "jest/globals": true
+  },
+}
