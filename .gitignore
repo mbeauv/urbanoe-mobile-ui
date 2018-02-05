@@ -3,5 +3,6 @@ dist/
 node_modules/
 docs/
 .expo/
+.scannerwork/
 npm-debug.*
 *.log

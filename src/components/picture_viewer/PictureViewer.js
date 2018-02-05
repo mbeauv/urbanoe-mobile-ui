@@ -50,9 +50,22 @@ function imageProp(imageInfo : ImageInfo) {
   };
 }
 
-
-
 class PictureViewer extends Component<Props, State> {
+  static renderCaption(imageInfo: ImageInfo, textStyle: Style) {
+    return (
+      <View style={styles.captionContainer}>
+        <Image
+          style={styles.avatar}
+          source={{ uri: imageInfo.author.avatarUrl }}
+        />
+        <View style={styles.authorContainer}>
+          <Text style={textStyle}>{imageInfo.author.userName}</Text>
+          <Text style={textStyle}>{`Created on ${formatDateYYYYMMDD(imageInfo.createdOn)}`}</Text>
+        </View>
+      </View>
+    );
+  }
+
   state = { interactionsComplete: false, currentPosition: this.props.startPosition };
 
   componentDidMount() {
@@ -76,22 +89,6 @@ class PictureViewer extends Component<Props, State> {
     );
   }
 
-  renderCaption(imageInfo: ImageInfo, textStyle: Style) {
-    const { currentPosition } = this.state;
-    return (
-      <View style={styles.captionContainer}>
-        <Image
-          style={styles.avatar}
-          source={{ uri: imageInfo.author.avatarUrl }}
-        />
-        <View style={styles.authorContainer}>
-          <Text style={textStyle}>{imageInfo.author.userName}</Text>
-          <Text style={textStyle}>{`Created on ${formatDateYYYYMMDD(imageInfo.createdOn)}`}</Text>
-        </View>
-      </View>
-    );
-  }
-
   render() {
     const { imageInfo, backgroundColor, textStyle } = this.props;
 
@@ -99,7 +96,7 @@ class PictureViewer extends Component<Props, State> {
       return (
         <View style={[styles.outerContainer, { backgroundColor }]}>
           { this.renderGallery(imageInfo) }
-          { this.renderCaption(imageInfo[this.state.currentPosition], textStyle) }
+          { PictureViewer.renderCaption(imageInfo[this.state.currentPosition], textStyle) }
         </View>
       );
     }
