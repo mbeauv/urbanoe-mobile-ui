@@ -24,7 +24,6 @@ import ScreenHeader from './screen_header/ScreenHeader';
 import RatingMeter from './rating_meter/RatingMeter';
 import RoundedButton from './rounded_button/RoundedButton';
 import Spinner from './spinner/Spinner';
-import Splash from './splash/Splash';
 import UserProfile from './user_profile/UserProfile';
 
 export {
@@ -52,6 +51,5 @@ export {
   RatingMeter,
   RoundedButton,
   Spinner,
-  Splash,
   UserProfile,
 };
