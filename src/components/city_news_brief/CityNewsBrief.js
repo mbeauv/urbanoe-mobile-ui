@@ -68,14 +68,16 @@ class CityNewsBrief extends Component<Props> {
   renderActionBar = () => {
     if (this.props.expanded) {
       return (
-        <Animated.View style={{ alignItems: 'center', flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
-          <CityNewsBriefActionBar
-            extraId={this.props.news.actionableId}
-            extraType={this.props.news.actionableType}
-            onChevronClicked={(type, id) => this.props.onChevronClicked(type, id)}
-            iconColor={this.props.buttonIconColor}
-            iconBackgroundColor={this.props.buttonBackgroundColor}
-          />
+        <Animated.View style={{ position: 'absolute', left: 0, right: 0, bottom: 0 }}>
+          <Animated.View style={{ alignItems: 'center', flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <CityNewsBriefActionBar
+              extraId={this.props.news.actionableId}
+              extraType={this.props.news.actionableType}
+              onChevronClicked={(type, id) => this.props.onChevronClicked(type, id)}
+              iconColor={this.props.buttonIconColor}
+              iconBackgroundColor={this.props.buttonBackgroundColor}
+            />
+          </Animated.View>
         </Animated.View>
       );
     }
@@ -86,12 +88,16 @@ class CityNewsBrief extends Component<Props> {
   renderImage(imageUrl: string, width: number) {
     if (imageUrl) {
       return (
-        <Animated.Image
-          style={{ height: this.imageHeight, width }}
-          source={{ uri: imageUrl }}
-        >
+        <Animated.View>
+          <Animated.Image
+            style={{ height: this.imageHeight, width }}
+            source={{ uri: imageUrl }}
+          />
           { this.renderActionBar() }
-        </Animated.Image>
+        </Animated.View>
+
+        //   { this.renderActionBar() }
+        // </Animated.Image>
       );
     }
 
