@@ -95,9 +95,6 @@ class CityNewsBrief extends Component<Props> {
           />
           { this.renderActionBar() }
         </Animated.View>
-
-        //   { this.renderActionBar() }
-        // </Animated.Image>
       );
     }
 
