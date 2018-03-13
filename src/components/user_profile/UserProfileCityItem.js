@@ -54,13 +54,14 @@ const UserProfileCityItem = ({
 } : Props) => (
   <View style={[styles.outerContainer, { borderColor: iconColor }]}>
     <View style={styles.imageContainer}>
-      <Image style={styles.image} source={{ uri: city.imageUrl }}>
+      <Image style={styles.image} source={{ uri: city.imageUrl }} />
+      <View style={{ position: 'absolute' }}>
         <CityRelationshipIcon
           relationship={city.relationship}
           color={iconColor}
           backgroundColor={iconBackgroundColor}
         />
-      </Image>
+      </View>
     </View>
     <View style={styles.dataContainer}>
       <Text style={cellTextStrongStyle}>{city.cityName}</Text>
